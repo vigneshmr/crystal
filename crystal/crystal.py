@@ -47,7 +47,7 @@ def plot_stock_data(symbol, start_ts, end_ts, category):
     plt.show()
 
 
-def get_yearly_close(symbol):
+def plot_yearly_close(symbol):
     return plot_stock_data(
         symbol,
         timestamp(datetime.today() - timedelta(days=365)),
@@ -56,15 +56,15 @@ def get_yearly_close(symbol):
     )
 
 
-def plot_data(list):
-    pass
+def plot_any_stock():
+    stock = raw_input('Symbol: ')
+    plot_yearly_close(stock)
 
 
 def commander():
     cmd = Commander([
         Command(title='Exit', action=lambda: sys.exit()),
-        Command(title='Get a stock quote for MSFT', action=lambda: get_yearly_close('MSFT')),
-        Command(title='Get a stock quote for AAPL', action=lambda: get_yearly_close('AAPL')),
+        Command(title='stock: plot yearly close', action=lambda: plot_any_stock()),
     ])
     cmd.run()
 
