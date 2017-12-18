@@ -10,7 +10,7 @@ class Commander(object):
             selection = int(input("Enter choice: "))
             if 1 <= selection <= len(self.commands):
                 try:
-                    self.commands[selection-1].run()
+                    self.commands[selection - 1].run()
                 except Exception as e:
                     print 'ERROR: ' + str(e)
 

@@ -4,6 +4,7 @@ from datetime import (
 )
 import sys
 
+from fetcher.yearly import plot_yearly
 from utils.commands import (
     Command,
     Commander,
@@ -57,8 +58,9 @@ def plot_yearly_close(symbol):
 
 
 def plot_any_stock():
-    stock = raw_input('Symbol: ')
-    plot_yearly_close(stock)
+    # stock = raw_input('Symbol: ')
+    # plot_yearly_close(stock)
+    plot_yearly(['goog', 'aapl'])
 
 
 def commander():

@@ -6,4 +6,4 @@ env:
 
 .PHONY: analysis
 analysis: env
-	env/bin/ipython crystal/crystal.py
+	env/bin/ipython crystal/main/main.py
