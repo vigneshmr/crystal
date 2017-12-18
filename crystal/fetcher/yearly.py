@@ -7,7 +7,7 @@ from datetime import (
 )
 
 from crystal.utils.time import timestamp
-from crystal.data.stocks import get_multi_stock_data
+from crystal.origin.stocks import get_multi_stock_data
 from crystal.viz.plotter import plot_stock_data
 
 CATEGORY_CLOSE = 'Close'
