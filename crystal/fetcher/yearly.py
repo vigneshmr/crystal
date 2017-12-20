@@ -6,11 +6,9 @@ from datetime import (
     timedelta,
 )
 
+from crystal.fetcher.base import FetcherBase
 from crystal.utils.time import timestamp
-from crystal.origin.stocks import (
-    get_multi_stock_data,
-    get_single_stock_data,
-)
+from crystal.origin.stocks import Origin
 from crystal.viz.plotter import (
     plot_single_stock_data,
     plot_multi_stock_data,
@@ -19,12 +17,17 @@ from crystal.viz.plotter import (
 CATEGORY_CLOSE = 'Close'
 
 
-def plot_yearly(stocks):
-    start = datetime.today() - timedelta(days=365)
-    end = timestamp(datetime.today())
-    if len(stocks) == 1:
-        data = get_single_stock_data(stocks[0], start, end, CATEGORY_CLOSE)
-        plot_single_stock_data(data, stocks[0])
-    else:
-        data = get_multi_stock_data(stocks, start, end, CATEGORY_CLOSE)
-        plot_multi_stock_data(data)
+class FetcherYearly(FetcherBase):
+    def __init__(self, source):
+        self.source = source
+        self.origin = Origin(source=source)
+
+    def plot_yearly(self, stocks):
+        start = datetime.today() - timedelta(days=365)
+        end = timestamp(datetime.today())
+        if len(stocks) == 1:
+            data = self.origin.get_single_stock_data(stocks[0], start, end, CATEGORY_CLOSE)
+            plot_single_stock_data(data, stocks[0])
+        else:
+            data = self.origin.get_multi_stock_data(stocks, start, end, CATEGORY_CLOSE)
+            plot_multi_stock_data(data)

@@ -4,3 +4,6 @@ pandas
 pandas-datareader
 matplotlib
 setuptools
+
+# console colors
+termcolor

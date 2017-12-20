@@ -1,0 +1,2 @@
+class FetcherBase(object):
+    pass

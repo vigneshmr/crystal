@@ -2,22 +2,24 @@ import matplotlib.pyplot as plt
 
 
 def plot_multi_stock_data(data):
+    plt.clf()
     plt.plot(data)
     plt.ylabel('time')
     plt.xlabel('stock value')
     plt.title('stocks')
     plt.legend(data.columns)
-    plt.draw()
     plt.grid(True)
-    plt.show()
+    plt.draw()
+    plt.get_current_fig_manager().show()
 
 
 def plot_single_stock_data(data, symbol):
+    plt.clf()
     plt.plot(data)
     plt.ylabel('time')
     plt.xlabel('stock value')
     plt.title('stocks')
     plt.legend([symbol])
-    plt.draw()
     plt.grid(True)
-    plt.show()
+    plt.draw()
+    plt.get_current_fig_manager().show()

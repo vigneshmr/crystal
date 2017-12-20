@@ -1,0 +1,2 @@
+class OriginBase(object):
+    pass
