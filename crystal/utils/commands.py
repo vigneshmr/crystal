@@ -1,3 +1,6 @@
+import logging
+
+
 class Commander(object):
     def __init__(self, commands):
         self.commands = commands
@@ -12,7 +15,7 @@ class Commander(object):
                 try:
                     self.commands[selection - 1].run()
                 except Exception as e:
-                    print 'ERROR: ' + str(e)
+                    logging.exception('ERROR: ' + str(e))
 
 
 class Command(object):
